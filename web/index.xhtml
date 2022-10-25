@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="miform">
+            <p:panelGrid columns="2">
+                <h:outputText value="nombre"/>
+                <p:inputText value="#{contactoBean.contacto.nombre}"/>
+                <h:outputText value="apellido"/>
+                <p:inputText value="#{contactoBean.contacto.apellido}"/>
+                <h:outputText value="numero"/>
+                <p:inputText value="#{contactoBean.contacto.numero}"/>
+                <p:commandButton value="guardar" update="miform" actionListener="#{contactoBean.guardar()}"/>
+            </p:panelGrid>
+            <p:messages closable="true" showDetail="true" showSummary="true" />
+            <p:dataTable value="#{contactoBean.contactos}" var="aux">
+                <p:column headerText="ID">
+                    <h:outputText value="#{aux.id}"/>
+                </p:column>
+                <p:column headerText="NOMBRE">
+                    <h:outputText value="#{aux.nombre}"/>
+                </p:column>
+                <p:column headerText="APELLIDO">
+                    <h:outputText value="#{aux.apellido}"/>
+                </p:column>
+                <p:column headerText="NUMERO">
+                    <h:outputText value="#{aux.numero}"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>
+
